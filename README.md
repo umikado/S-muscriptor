@@ -46,6 +46,10 @@ The weights are then automatically downloaded on first use and cached locally.
 
 After Hugging Face authentication, you can use MuScriptor with `uvx` without having to clone this repo.
 
+For an Apple Silicon setup from this repository, see the
+[local macOS setup guide (中文)](docs/local-macos-setup.md), including MPS acceleration,
+external-SSD model caching, and validation steps.
+
 Some platforms need an extra `uvx` flag, on every `uvx muscriptor` command:
 
 | Platform | Command |
