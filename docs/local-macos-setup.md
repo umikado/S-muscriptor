@@ -6,7 +6,8 @@
 当前优先在 Mac Studio（M4 Max、128 GB 统一内存、macOS 26.7.2）上使用现有 MuScriptor 网页界面。
 
 已经完成仓库功能梳理、模型选择调研，以及本地安装和外置磁盘缓存方案的整理。
-本文记录部署方案；尚未在目标 Mac 上完成安装、下载模型或验证转录质量与速度。
+目标 Mac 已完成原生 arm64 环境安装、MPS 可用性检查、medium 下载和首次网页转录试运行。
+medium 的初步效果已得到使用者认可；尚未记录准确率、耗时、峰值内存或 large 对比数据。
 仓库当前版本为 0.4.0，已经包含 Python 推理、CLI、FastAPI、React 网页和 Docker 部署配置。
 
 ## 运行方式和模型选择
@@ -134,16 +135,16 @@ uv run muscriptor transcribe web/public/headache_by_lost_deposit_10s.mp3 --model
 | 合成 WAV、原音与合成音对比 WAV 导出 | FluidSynth，可通过 `brew install fluid-synth` 安装 |
 | MusicXML、总谱和分谱 PDF 导出 | [MuseScore 4 或更新版本](https://musescore.org/en/download) |
 
-## 尚待执行的验收
+## 验收和后续使用
 
-- 确认 MPS 可用，medium 能加载，网页和 `/health` 正常响应。
-- 转录内置示例及一段约 30 秒的自有音频，确认进度、钢琴卷帘图、试听和 MIDI 下载。
+- 已确认原生 arm64、MPS 可用、medium 能加载，并完成首次网页转录试运行。
+- 继续检查内置示例及一段约 30 秒的自有音频的进度、钢琴卷帘图、试听和 MIDI 下载。
 - 将 MIDI 导入 DAW，检查音高、漏音和多余音符、音符长度、乐器分轨及节奏对齐。
 - 用相同素材和设置对比 medium 与 large，记录模型加载时间、转录耗时、峰值内存和修谱工作量。
 - 验证一首完整歌曲，以及重启服务后的缓存复用。
 - 如需离线使用，提前缓存转录模型、节拍检测模型和音源，并在断网后分别验证转录和试听。
 
-验收后再决定是否增加双击启动的 `.command` 文件。
+日常启动、打开页面和停止服务可使用[原生 macOS 控制应用](macos-control-app.md)。首次生成应用后即可双击使用。
 
 ## 后续音频分轨方向
 

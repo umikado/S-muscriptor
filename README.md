@@ -49,6 +49,8 @@ After Hugging Face authentication, you can use MuScriptor with `uvx` without hav
 For an Apple Silicon setup from this repository, see the
 [local macOS setup guide (中文)](docs/local-macos-setup.md), including MPS acceleration,
 external-SSD model caching, and validation steps.
+For Start / Open Page / Stop controls without keeping a terminal open, build the
+[macOS control app (中文)](docs/macos-control-app.md).
 
 Some platforms need an extra `uvx` flag, on every `uvx muscriptor` command:
 
